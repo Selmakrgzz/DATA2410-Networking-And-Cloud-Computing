@@ -3,8 +3,8 @@ import argparse;
 def jfi(list):
     sumList=sum(list) #Sums the values in list
     listLength=len(list) #Finds the length of the list
-    jfiFormula=(sumList ** 2)/(listLength * sum(i ** 2 for i in list))
-    return jfiFormula
+    jfiFormula=(sumList ** 2)/(listLength * sum(i ** 2 for i in list)) #Calculates the JFI
+    return jfiFormula #Returns the calculated JFI
 
 def main():
     parser=argparse.ArgumentParser(description='Finds the JFI of accepted throughout-list')
@@ -14,7 +14,7 @@ def main():
 
     args=parser.parse_args()
 
-    result=jfi(args.throughput_list)
+    result=jfi(args.throughput_list) #Sending the given list to calculate the JFI
     print(f"Jains Fairness index is:  {result}")
 
 main()

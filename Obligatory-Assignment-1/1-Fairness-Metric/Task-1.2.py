@@ -44,7 +44,7 @@ def main():
 
     args=parser.parse_args()
 
-    throughputList=open(args.throughput_file, 'r')
+    throughputList=open(args.throughput_file, 'r') #Opening the given file
 
     convertedList=[] #List that will hold on the converted values
     list=[]
@@ -63,7 +63,7 @@ def main():
                 num='' #Emtying the variable num
 
     throughputList.close() #Closing the opened file  
-    result=jfi(convertedList)
+    result=jfi(convertedList) #Sending the given list to jfi to calculate the JFI
     print(f"Jains Fairness index is:  {result}")
 
 main()
