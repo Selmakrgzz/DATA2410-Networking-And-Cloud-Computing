@@ -1,36 +1,38 @@
 import argparse
 import sys
 
+#Method to check the given port
 def checkPort(port):
-    if 1025 <= port <= 65535:
+    if 1025 <= port <= 65535: #Checking the given interval
         return True
     else:
         return False
 
+#Method to check the range of given IP address
 def checkRangeIP(IP):
-    num=''
-    result=True
-    for i in IP:
-        if i.isdigit():
-            num=num+str(i)
-        elif i == '.':
-            intNum=int(num)
-            num=''
-            if 0 <= intNum <= 255:
-                continue
+    num='' #Setting the num to be a string since we will add the belonging digits and not sum them
+    result=True #Setting the result to true by defualt
+    for i in IP: #Iterating through the given IP address
+        if i.isdigit(): #Selecting out the digits
+            num=num+str(i) #Appending the digits
+        elif i == '.': #When we come to the end of each block in the IP address
+            intNum=int(num) #Parsin the string to an int
+            num='' #Emtying the num for later use
+            if 0 <= intNum <= 255: #Checking the given interval for each block
+                continue #If true, continue
             else:
-                result=False
-                break
-    if num:
-        intNum=int(num)
-        if not(0 <= intNum <= 255):
+                result=False #If not true, then update result to be false
+                break #And break out
+    if num: #If num is not emty, which will be the last block in the IP address
+        intNum=int(num) #Parsing the string to int
+        if not(0 <= intNum <= 255): #Checking the given interval for each block
             result = False
 
-    return result
+    return result #Returning the result as a boolean
     
-
+#Method to check if the given IP address is submitted with the right format AKA having 3 dots
 def checkDot(IP):
-    if IP.count('.') == 3:
+    if IP.count('.') == 3: #Counting the dots to be equeal to 3
         return True
     else:
         return False
