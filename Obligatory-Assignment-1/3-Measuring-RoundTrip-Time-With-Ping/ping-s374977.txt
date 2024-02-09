@@ -1,0 +1,34 @@
+The difference in RTT values could be influenced by various factors,
+such as physical distance, network traffic, and routing quality.
+
+1. ***www.oslomet.no***
+   Minimum = 17ms, Maximum = 38ms, Average = 20ms
+
+   The received minimum RTT value of 17ms indicates effective
+   communication with the source. The maximum RTT value of 38ms
+   suggests less effective communication, likely caused by high
+   network load. Since the location is in Norway, this shouldn't
+   be due to geographical distance. The average RTT of 20ms
+   indicates good overall performance.
+
+2. ***www.ox.ac.uk***
+   Minimum = 16ms, Maximum = 23ms, Average = 20ms
+
+   The received minimum RTT value of 16ms indicates effective
+   communication with the source. The maximum RTT value of 23ms,
+   although less effective, is still reasonable and may be
+   influenced by geographical distance. The average RTT of 20ms
+   indicates good average performance.
+
+3. ***www.cs.gaia.umass.edu***
+   Ping request could not find host www.gaia.cs.umass.edu.
+   Please check the name and try again.
+
+4. ***www.sydney.edu.au***
+   Minimum = 16ms, Maximum = 28ms, Average = 19ms
+
+   The received minimum RTT value of 16ms indicates effective
+   communication with the source. The maximum RTT value of 28ms,
+   likely influenced by geographical distance, suggests less effective
+   communication. The average RTT of 19ms indicates good average
+   performance.
