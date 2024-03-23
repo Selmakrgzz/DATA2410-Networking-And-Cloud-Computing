@@ -3,7 +3,7 @@ Starting the server first and then load the client web browser with the given ur
 
 
 #TASK2
-
+Using argsparse to get the ip, port and requested filename from client. Creating a socket that's using TCP. Handling errors with try/exception. Checking the connection between server and client. Using the input from argparse to send a HTTP GET request to server. We will receive the http 200 OK in client if the process has completed as it should.
 
 
 #TASK3

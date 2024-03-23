@@ -6,9 +6,9 @@ def main():
     #Create a socket called serverSocket
     serverSocket = socket(AF_INET, SOCK_STREAM)
     #Prepare a sever socket
-    server_port = 8000
+    server_port = 8888
     server_ip = '127.0.0.1'
-    
+
     try:
         #Establishes a connection between the server's IP address and the specified port number
         serverSocket.bind((server_ip, server_port))
@@ -42,21 +42,20 @@ def main():
                 connectionSocket.send(http_response.encode())
 
                 #Send the content of the requested file to the client
-                for i in range(0, len(outputdata)):
-                    connectionSocket.send(outputdata[i].encode())
-                connectionSocket.send("\r\n".encode())
+                connectionSocket.sendall(outputdata.encode())
                 
             except IOError:
                 #Send response message for file not found
                 http_response = "HTTP/1.1 404 Not Found\r\n\r\n"
                 connectionSocket.send(http_response.encode())
-            
+                
             #Close client socket
             connectionSocket.close()
-
+                
     except Exception as e:
         print('Server error: ', e )
-             
+            
+            
     finally:
         serverSocket.close()
         sys.exit()#Terminate the program after sending the corresponding data
