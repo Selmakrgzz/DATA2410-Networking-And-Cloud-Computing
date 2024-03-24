@@ -7,3 +7,8 @@ Using argsparse to get the ip, port and requested filename from client. Creating
 
 
 #TASK3
+The server handles now multiple http requests now by implementing multithreded server. Created a function handle_client that will handle each client from the new request. Other than that it's mostly the same as the other tasks.
+
+#...Note
+
+For the task 2 and 3 I have only used clientSocket.sendall(outputdata.encode()) and not the for-loop method as given in the shell code because I did encounter some errors and dificulties.

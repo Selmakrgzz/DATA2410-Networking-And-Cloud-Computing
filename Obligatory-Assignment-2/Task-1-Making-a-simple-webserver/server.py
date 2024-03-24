@@ -38,9 +38,6 @@ def main():
                 #Send one HTTP header line into socket
                 http_response = "HTTP/1.1 200 OK\r\n\r\n"
 
-                #Sending the response directly to the client
-                connectionSocket.send(http_response.encode())
-
                 #Send the content of the requested file to the client
                 for i in range(0, len(outputdata)):
                     connectionSocket.send(outputdata[i].encode())
@@ -49,9 +46,11 @@ def main():
             except IOError:
                 #Send response message for file not found
                 http_response = "HTTP/1.1 404 Not Found\r\n\r\n"
-                connectionSocket.send(http_response.encode())
             
-            #Close client socket
+            #Sending the http repsonse to client side
+            connectionSocket.send(http_response.encode())
+
+            # Close client socket
             connectionSocket.close()
 
     except Exception as e:

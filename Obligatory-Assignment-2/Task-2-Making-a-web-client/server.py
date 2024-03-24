@@ -35,19 +35,19 @@ def main():
                 outputdata = f.read()
                 print(filename)
 
-                #Send one HTTP header line into socket
-                http_response = "HTTP/1.1 200 OK\r\n\r\n"
+                #Sending one HTTP header line into socket
+                #Also sending the output data to the client
+                http_response = f"HTTP/1.1 200 OK\r\n\r\n {outputdata.encode()}"
 
-                #Sending the response directly to the client
-                connectionSocket.send(http_response.encode())
-
-                #Send the content of the requested file to the client
-                connectionSocket.sendall(outputdata.encode())
-                
-            except IOError:
+            except FileNotFoundError:
                 #Send response message for file not found
                 http_response = "HTTP/1.1 404 Not Found\r\n\r\n"
-                connectionSocket.send(http_response.encode())
+            
+            #Send the content of the requested file to the client
+            connectionSocket.sendall(outputdata.encode())
+
+            #Sending the response directly to the client
+            connectionSocket.send(http_response.encode())
                 
             #Close client socket
             connectionSocket.close()
